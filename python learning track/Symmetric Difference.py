@@ -1,0 +1,10 @@
+m=int(input())
+a=set(map(int,input().split()))
+n=int(input())
+b=set(map(int,input().split()))
+x=a.difference(b)
+y=b.difference(a)
+sym_diff=list(x.union(y))
+sym_diff.sort()
+for i in sym_diff:
+    print(i)
