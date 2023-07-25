@@ -1,1 +1,1 @@
-# A2SV competative programming
+# A2SV competitive programming
