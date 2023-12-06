@@ -13,7 +13,7 @@ class Solution:
                 ans="0"
             while num>0:
                 remainder=num%10
-                ans+=str(remainder)
+                ans+=chr(remainder+48)
                 num=num//10
             return ans[::-1]
 
