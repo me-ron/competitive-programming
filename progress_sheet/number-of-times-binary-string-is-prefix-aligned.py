@@ -1,11 +1,11 @@
 class Solution:
     def numTimesAllBlue(self, flips: List[int]) -> int:
         ans=0
-        s=set()
+        s=0
         m=0
         for i in flips:
-            if len(s)==m:
+            if s==m:
                 ans+=1
-            s.add(i)
+            s+=1
             m=max(i,m)
         return ans
