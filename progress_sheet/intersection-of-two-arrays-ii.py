@@ -1,11 +1,19 @@
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        s=list(set(nums1).intersection(set(nums2)))
-        c1=Counter(nums1)
-        c2=Counter(nums2)
+        nums1.sort()
+        nums2.sort()
+        i=0
+        j=0
         ans=[]
-        for i in s:
-            ans+=[i]*min(c1[i],c2[i])
+        while i<len(nums1) and j<len(nums2):
+            if nums1[i]==nums2[j]:
+                ans.append(nums1[i])
+                i+=1
+                j+=1
+            elif nums1[i]<nums2[j]:
+                i+=1
+            else:
+                j+=1
         return ans
 
         
