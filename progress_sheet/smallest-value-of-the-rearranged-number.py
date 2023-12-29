@@ -1,5 +1,6 @@
 class Solution:
     def smallestNumber(self, num: int) -> int:
+        s=-1 if num<0 else 1
         if num>=0:
             num=list(str(num))
             num.sort()
@@ -13,5 +14,4 @@ class Solution:
         else:
             num=list(str(num))[1:]
             num.sort(reverse=True)
-            num=['-']+num
-        return int("".join(num))
+        return int("".join(num))*s
