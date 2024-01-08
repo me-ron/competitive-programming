@@ -5,8 +5,8 @@ class Solution:
         ans=float("inf")
         for j in range(len(nums)):
             summ+=nums[j]
-            while summ>=target:
+            while summ-nums[i]>=target:
                 summ-=nums[i]
-                ans=min(ans,j-i+1)
                 i+=1
-        return ans if ans!=float("inf") else 0
+            ans=min(ans,j-i) if summ>=target else ans
+        return ans+1 if summ>=target else 0
