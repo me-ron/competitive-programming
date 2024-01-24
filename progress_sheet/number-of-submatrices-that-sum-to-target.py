@@ -9,14 +9,13 @@ class Solution:
         ans=0
         for j in range(1, len(pre[0])):
             for k in range(j, len(pre[0])):
-                d = {0:1}
+                run = {0:1}
                 sums = 0
                 for i in range(1, len(pre)):
                     sums += pre[i][k] - pre[i][j-1]
-                    ans += d.get(sums-target, 0)
-                    d[sums] = d.get(sums, 0) + 1
+                    if sums-target in run:
+                        ans+=run[sums-target]
+                    run[sums] = run.get(sums, 0)
+                    run[sums]+=1
         
         return ans
-
-
-        return 0
