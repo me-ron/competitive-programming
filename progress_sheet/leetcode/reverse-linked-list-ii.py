@@ -10,14 +10,12 @@ class Solution:
         dummy = head
         idx = 1
         while dummy:
-            if idx == left - 1:
-                bl = dummy
+            if idx == left - 1: bl = dummy
             elif idx == left:
                 l = curr = dummy
                 prev = None
                 while curr and idx <= right:
-                    if idx == right:
-                        r = curr
+                    if idx == right: r = curr
                     temp = curr.next
                     curr.next = prev
                     prev = curr
@@ -26,8 +24,7 @@ class Solution:
                 l.next = curr
             dummy = dummy.next
             idx += 1
-        if bl:
-            bl.next = r
-        else:
-            head = r
+
+        if bl: bl.next = r
+        else: head = r
         return head
