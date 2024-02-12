@@ -13,16 +13,18 @@ class Solution:
             if idx==left-1:
                 bl=dummy
             elif idx==left:
-                l=curr=dummy
+                l=dummy
                 prev=None
-                while curr and idx<=right:
-                    if idx==right:r=curr
-                    temp=curr.next
-                    curr.next=prev
-                    prev=curr
-                    curr=temp
+                while dummy and idx<=right:
+                    if idx==right:
+                        r=dummy
+                    temp=dummy.next
+                    dummy.next=prev
+                    prev=dummy
+                    dummy=temp
                     idx+=1
-                l.next=curr
+                l.next=dummy
+                break
             dummy=dummy.next
             idx+=1
         if bl:
