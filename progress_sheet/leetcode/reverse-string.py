@@ -10,5 +10,5 @@ class Solution:
             reverse(i + 1, s)
         
         reverse(0, s)
-        return s
+        
         
