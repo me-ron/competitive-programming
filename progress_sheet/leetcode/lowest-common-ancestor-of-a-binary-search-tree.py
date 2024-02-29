@@ -10,9 +10,9 @@ class Solution:
         def search(root, num1, num2):
             if num1 <= root.val <= num2:
                 return root
-            if num2 < root.val:
+            if num1 < root.val:
                 return search(root.left, num1, num2)
-            elif num1 > root.val:
+            else:
                 return search(root.right, num1, num2)
 
         num1 = min(p.val, q.val)
