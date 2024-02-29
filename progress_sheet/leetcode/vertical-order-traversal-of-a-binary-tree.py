@@ -10,10 +10,8 @@ class Solution:
         def vertical(node, level, height):
             if not node:
                 return
-            while height >= len(ans[level]):
-                ans[level].append([])
 
-            ans[level][height].append(node.val)
+            ans[level].append((height, node.val))
             vertical(node.left, level - 1, height + 1)
             vertical(node.right, level + 1, height + 1)
 
@@ -21,12 +19,7 @@ class Solution:
         sorted_keys = sorted(ans.keys())
         result = []
         for key in sorted_keys:
-            temp = []
-            for val in ans[key]:
-                if val:
-                    temp += sorted(val)
-
-            result.append(temp)
+            result.append([val for row, val in sorted(ans[key])])
 
         return result
         
