@@ -18,8 +18,9 @@ class Solution:
         vertical(root, 0, 0)
         sorted_keys = sorted(ans.keys())
         result = []
+
         for key in sorted_keys:
-            result.append([val for row, val in sorted(ans[key])])
+            result.append([val for height, val in sorted(ans[key])])
 
         return result
         
