@@ -14,10 +14,8 @@ class Solution:
                 ans.append(digits * 10 + node.val)
                 return
              
-            if node.left:
-                sums(node.left, digits * 10 + node.val)
-            if node.right:
-                sums(node.right, digits * 10 + node.val)
+            sums(node.left, digits * 10 + node.val)
+            sums(node.right, digits * 10 + node.val)
 
         sums(root, 0)
         return sum(ans)
