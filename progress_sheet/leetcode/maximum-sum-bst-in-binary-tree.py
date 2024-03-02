@@ -11,13 +11,13 @@ class Solution:
             if not root:
                 return (inf,-inf, 0)
             
-            left_min, left_max, left_sum = helper(root.left, min_val, root.val)
-            right_min, right_max, right_sum = helper(root.right, root.val, max_val)
+            left = helper(root.left, min_val, root.val)
+            right = helper(root.right, root.val, max_val)
             
-            if left_max < root.val < right_min:
-                curr_sum = left_sum + right_sum + root.val
+            if left[1] < root.val < right[0]:
+                curr_sum = left[2] + right[2] + root.val
                 self.result = max(self.result, curr_sum)
-                return (min(left_min, root.val), max(right_max, root.val), curr_sum)
+                return (min(left[0], root.val), max(right[1], root.val), curr_sum)
             else:
                 return (-inf, inf, 0)
         
