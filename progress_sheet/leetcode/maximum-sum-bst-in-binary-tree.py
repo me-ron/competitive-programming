@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    result = 0
     def maxSumBST(self, root: Optional[TreeNode]) -> int:
         def helper(root, min_val, max_val):
             if not root:
@@ -20,6 +21,5 @@ class Solution:
             else:
                 return (-inf, inf, 0)
         
-        self.result = 0
         helper(root, -inf, inf)
         return self.result
