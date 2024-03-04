@@ -1,17 +1,22 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        ans = []
-        def explore(pos, path):
-            nonlocal n, k
-            if len(path) == k:
-                ans.append(path[:])
+        def explore(num, combinations):
+            nonlocal n
+
+            if len(combinations) == k:
+                ans.append(combinations[:])
                 return
             
-            for num in range(pos, n + 1):
-                path.append(num)
-                explore(num + 1, path)
-                path.pop()
-        
+            if num > n:
+                return 
+            
+            combinations.append(num)
+            explore(num + 1, combinations)
+            combinations.pop()
+
+            explore(num + 1, combinations)
+
+        ans = []
         explore(1, [])
         return ans
             
