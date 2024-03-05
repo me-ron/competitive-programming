@@ -18,16 +18,13 @@ class Solution:
 
         def backtrack(row, count):
             nonlocal n
+            if row == n:
+                 count += 1
 
             for col in range(n):
-
                 if can_place(row, col):
-
                     place(row, col)
-                    if row == n - 1:
-                        count += 1
-                    else:
-                        count = backtrack(row + 1, count)
+                    count = backtrack(row + 1, count)
                     remove(row, col)
                 
             return count
