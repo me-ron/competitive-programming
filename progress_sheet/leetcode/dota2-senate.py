@@ -7,7 +7,7 @@ class Solution:
         while c["R"] and c["D"]:
             vote = queue.popleft()
             if vote == 'R':
-                if red >= 0:
+                if red == 0:
                     die -= 1
                     c['D'] -= c['D'] > 0
                     queue.append(vote)
@@ -15,7 +15,7 @@ class Solution:
                     red += 1
 
             else:
-                if die >= 0:
+                if die == 0:
                     red -= 1
                     c['R'] -= c['R'] > 0
                     queue.append(vote)
